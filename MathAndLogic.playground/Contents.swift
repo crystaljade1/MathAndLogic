@@ -47,18 +47,39 @@ print(returnCharactersFromStringExcludingVowels(input: "Iron Yard"))
 
 // Create a function which accepts a string and returns an array of the characters in the provided word excluding every other vowel.
 
-func returnWordsExcludingEveryOtherVowel(input: String) -> [Character] {
+
+
+func strtupzer(input: String) -> [Character]? {
     let vowels: [Character] = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-    let newWord = [Character] = []
-    var index = input.startIndex
-    while index < input.endIndex {
-        print(input[index])
-    let result = [Character](input.characters.filter {
-        !vowels.contains($0) }
-    )
-    return newWord
+    var vowelCount = 0
+    var newArray = [Character]()
+    
+    
+    for char in input.characters {
+        if !vowels.contains(char) {
+            newArray.append(char)
+        }
+        
+        if vowels.contains(char) {
+            vowelCount += 1
+            if vowelCount % 2 == 1 {
+                newArray.append(char)
+            }
+        }
+        
     }
+
+    return newArray
+    
 }
+
+
+strtupzer(input: "bookkeeper")
+strtupzer(input: "cupcake")
+strtupzer(input: "Iron Yard")
+
+
+
 
 
 // Create a function which accepts a string and returns a string containing the provided word excluding every other vowel.
